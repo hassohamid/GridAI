@@ -1,3 +1,11 @@
+import DashboardContainer from "@/components/Dashboard/DashboardContainer";
+import Navigation from "@/components/HomePage/Navigation";
+
 export default function Dashboard() {
-  return <h1>Dashboard</h1>;
+  return (
+    <>
+      <Navigation />
+      <DashboardContainer />
+    </>
+  );
 }

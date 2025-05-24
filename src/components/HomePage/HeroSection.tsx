@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Check, Play } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 import Marquee from "react-fast-marquee";
 

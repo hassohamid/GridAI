@@ -15,7 +15,7 @@ export default function Navigation() {
             <Link to="/login">Sign In</Link>
           </Button>
           <Button asChild>
-            <Link to="/login">Get Started</Link>
+            <Link to="/dashboard">Get Started</Link>
           </Button>
         </div>
       </div>
