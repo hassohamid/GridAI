@@ -8,6 +8,7 @@ import {
   Play,
 } from "lucide-react";
 import { useState } from "react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function FeaturesSection() {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -193,9 +194,10 @@ export default function FeaturesSection() {
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {" "}
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <div className="inline-flex items-center justify-center px-4 py-2 mb-4 sm:mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
+          <div className="inline-flex items-center justify-center px-6 py-3 mb-6 sm:mb-8 text-sm font-medium text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full shadow-lg">
             <Sparkles className="h-4 w-4 mr-2" />
             Powerful Features
           </div>
@@ -209,25 +211,29 @@ export default function FeaturesSection() {
         </div>{" "}
         {/* Interactive Split-Screen Layout */}
         <div className="max-w-7xl mx-auto">
-          {/* Instruction Text */}
-          <div className="text-center mb-8 lg:mb-12">
-            <p className="text-sm text-slate-500 bg-slate-50 inline-flex items-center px-4 py-2 rounded-full border border-slate-200">
-              👆 Click on each feature below to see it in action
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {" "}
+          {/* Instruction Alert */}
+          <div className="hidden lg:flex justify-center mb-8 lg:mb-12 ">
+            <Alert className="max-w-md">
+              <AlertDescription>
+                👇 Click on the features below to see them in action
+              </AlertDescription>
+            </Alert>
+          </div>{" "}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ">
             {/* Left Side - Feature Navigation */}
             <div className="space-y-6 lg:space-y-8">
               {features.map((feature, index) => (
                 <div
                   key={feature.id}
-                  className={`relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-500 ${
+                  className={`relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:cursor-pointer transition-all duration-500 ${
                     activeFeature === index
-                      ? `bg-gradient-to-br ${feature.bgColor} shadow-xl scale-[1.02] border-2 border-white`
-                      : "bg-white/80 hover:bg-white shadow-lg hover:shadow-xl border border-slate-100"
+                      ? `lg:bg-gradient-to-br lg:${feature.bgColor} shadow-xl lg:scale-[1.02] lg:border-2 lg:border-white bg-white/80 border border-slate-100`
+                      : "bg-white/80 lg:hover:bg-white shadow-lg lg:hover:shadow-xl border border-slate-100"
                   }`}
-                  onClick={() => setActiveFeature(index)}
+                  onClick={() =>
+                    window.innerWidth >= 1024 && setActiveFeature(index)
+                  }
                 >
                   <div className="flex items-start gap-4 sm:gap-6">
                     <div
@@ -235,8 +241,8 @@ export default function FeaturesSection() {
                         feature.color
                       } flex items-center justify-center text-xl sm:text-2xl shadow-lg transform transition-transform duration-300 ${
                         activeFeature === index
-                          ? "scale-110"
-                          : "hover:scale-105"
+                          ? "lg:scale-110"
+                          : "lg:hover:scale-105"
                       }`}
                     >
                       {feature.icon}
@@ -262,18 +268,17 @@ export default function FeaturesSection() {
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </div>{" "}
                   {activeFeature === index && (
-                    <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
+                    <div className="hidden lg:block absolute -right-2 top-1/2 transform -translate-y-1/2">
                       <div className="w-4 h-8 bg-gradient-to-r from-primary to-primary/80 rounded-l-lg"></div>
                     </div>
                   )}
                 </div>
               ))}
-            </div>
-
+            </div>{" "}
             {/* Right Side - Interactive Preview & Testimonials */}
-            <div className="space-y-8">
+            <div className="hidden lg:block space-y-8">
               {/* Live Preview Mockup */}
               <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100">
                 <div className="flex items-center justify-between mb-6">
@@ -372,46 +377,6 @@ export default function FeaturesSection() {
             </div>
           </div>
         </div>{" "}
-        {/* Bottom CTA with Social Proof */}
-        <div className="text-center mt-16 sm:mt-20 lg:mt-24">
-          <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary/5 via-purple-50 to-primary/5 rounded-3xl p-8 sm:p-12 border border-primary/10">
-            <div className="mb-8">
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
-                Ready to Transform Your Instagram Feed?
-              </h3>
-              <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-                Join thousands of creators who use GridAI to create stunning,
-                professional Instagram feeds that drive engagement and growth.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg">
-                Get Started Today
-                <Sparkles className="h-5 w-5 ml-2" />
-              </button>
-              <button className="inline-flex items-center px-6 py-4 text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300">
-                <Play className="h-4 w-4 mr-2" />
-                Watch Demo
-              </button>
-            </div>
-
-            <div className="flex items-center justify-center gap-8 text-sm text-slate-500">
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-emerald-500" />
-                Professional results guaranteed
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-emerald-500" />
-                AI-powered optimization
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-emerald-500" />
-                Instant downloads
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

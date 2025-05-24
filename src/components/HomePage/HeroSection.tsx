@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Sparkles, Instagram, Star } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Instagram,
+  Star,
+  Check,
+  Play,
+  Sparkle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 
@@ -75,39 +83,46 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* CTA Get Started */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-0">
-          <Button
-            size="lg"
-            className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold rounded-xl"
-            asChild
-          >
-            <Link to="/dashboard">
-              Start Creating{" "}
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </Link>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto border-2 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-medium rounded-xl transition-all duration-300 cursor-pointer"
-          >
-            See How It Works
-          </Button>
-        </div>
+          <div className="text-center mt-16 sm:mt-20 lg:mt-24">
+            <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary/5 via-purple-50 to-primary/5 rounded-3xl p-8 sm:p-12 border border-primary/10">
+              <div className="mb-8">
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+                  Ready to Transform Your Instagram Feed?
+                </h3>
+                <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+                  Join thousands of creators who use GridAI to create stunning,
+                  professional Instagram feeds that drive engagement and growth.
+                </p>
+              </div>
 
-        {/* Social Proof */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-muted-foreground/70 text-sm sm:text-base">
-          <div className="flex items-center space-x-2">
-            <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400" />
-            <span className="font-medium">4.8/5</span>
-            <span className="hidden xs:inline">from</span>
-            <span>1,200+ users</span>
-          </div>
-          <div className="hidden sm:block w-px h-4 bg-gray-300"></div>
-          <div className="flex items-center space-x-2">
-            <Instagram className="h-3 w-3 sm:h-4 sm:w-4" />
-            <span>2,500+ feeds created</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg">
+                  Get Started Today
+                  <Sparkles className="h-5 w-5 ml-2" />
+                </button>
+                <button className="inline-flex items-center px-6 py-4 text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300">
+                  <Play className="h-4 w-4 mr-2" />
+                  Watch Demo
+                </button>
+              </div>
+
+              <div className="flex items-center justify-center gap-8 text-sm text-slate-500 ">
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-500" />
+                  Professional results guaranteed
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-500" />
+                  AI-powered optimization
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-500" />
+                  Instant downloads
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
