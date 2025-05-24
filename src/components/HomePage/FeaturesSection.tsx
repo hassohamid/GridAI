@@ -5,7 +5,6 @@ import {
   Quote,
   ChevronLeft,
   ChevronRight,
-  TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
