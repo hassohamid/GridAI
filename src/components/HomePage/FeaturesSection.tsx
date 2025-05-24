@@ -19,12 +19,7 @@ export default function FeaturesSection() {
       title: "AI-Powered Enhancement",
       description:
         "Advanced machine learning algorithms analyze your photos and automatically enhance them for maximum aesthetic appeal and engagement.",
-      benefits: [
-        "Intelligent auto-enhancement",
-        "Color balance optimization",
-        "Lighting adjustment",
-        "Noise reduction",
-      ],
+      benefits: ["Intelligent auto-enhancement", "Color balance optimization"],
       color: "from-blue-500 to-cyan-600",
       bgColor: "from-blue-50 to-cyan-50",
       icon: "🤖",
@@ -34,13 +29,8 @@ export default function FeaturesSection() {
       id: 1,
       title: "Perfect Grid Layouts",
       description:
-        "Create stunning 3x3 Instagram feed layouts that tell a cohesive visual story and maximize engagement.",
-      benefits: [
-        "9-photo grid optimization",
-        "Visual flow analysis",
-        "Story-driven arrangements",
-        "Aesthetic balance",
-      ],
+        "Create stunning 3x3 Instagram feed layouts with perfect aesthetic balance that boost engagement and attract followers.",
+      benefits: ["9-photo grid optimization", "Aesthetic balance"],
       color: "from-purple-500 to-pink-600",
       bgColor: "from-purple-50 to-pink-50",
       icon: "📱",
@@ -51,12 +41,7 @@ export default function FeaturesSection() {
       title: "Instant Results",
       description:
         "Get your optimized feed layouts ready for posting in seconds. No waiting, no complexity, just beautiful results.",
-      benefits: [
-        "Lightning-fast processing",
-        "High-quality outputs",
-        "Multiple format options",
-        "One-click download",
-      ],
+      benefits: ["High-quality outputs", "One-click download"],
       color: "from-emerald-500 to-teal-600",
       bgColor: "from-emerald-50 to-teal-50",
       icon: "⚡",
@@ -105,23 +90,33 @@ export default function FeaturesSection() {
   const MockupPreview = ({ type }: { type: string }) => {
     if (type === "enhancement") {
       return (
-        <div className="relative h-48 flex items-center justify-center p-4">
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-sm mx-auto">
-            <div className="space-y-2 sm:space-y-3">
-              <div className="text-xs font-medium text-slate-500 text-center">
+        <div className="relative h-64 flex items-center justify-center p-4">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 w-full max-w-lg mx-auto">
+            <div className="space-y-3">
+              <div className="text-sm font-medium text-slate-500 text-center">
                 Before
               </div>
-              <div className="w-full aspect-square bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center max-w-[120px] mx-auto">
-                <span className="text-xl sm:text-2xl opacity-50">📸</span>
+              <div className="w-full aspect-square rounded-xl overflow-hidden max-w-[180px] mx-auto shadow-md border border-slate-200">
+                <img
+                  src="/Amanda.jpg"
+                  alt="Before AI Enhancement"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
-            <div className="space-y-2 sm:space-y-3">
-              <div className="text-xs font-medium text-emerald-600 text-center">
+            <div className="space-y-3">
+              <div className="text-sm font-medium text-emerald-600 text-center">
                 After AI Enhancement
               </div>
-              <div className="w-full aspect-square bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg flex items-center justify-center relative overflow-hidden max-w-[120px] mx-auto">
-                <span className="text-xl sm:text-2xl">✨</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20"></div>
+              <div className="w-full aspect-square rounded-xl overflow-hidden max-w-[180px] mx-auto shadow-xl border-2 border-emerald-200 relative">
+                <img
+                  src="/Amanda2.jpg"
+                  alt="After AI Enhancement"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 right-3 bg-emerald-500 text-white text-sm px-3 py-1 rounded-full shadow-lg">
+                  ✨ AI
+                </div>
               </div>
             </div>
           </div>
@@ -205,7 +200,8 @@ export default function FeaturesSection() {
           {" "}
           {/* Instruction Alert */}{" "}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ">
-            {" "}            {/* Mobile Staggered Cards Animation */}
+            {" "}
+            {/* Mobile Staggered Cards Animation */}
             <div className="lg:hidden relative h-[120vh] overflow-visible">
               {features.map((feature, index) => {
                 const isFromRight = index % 2 === 0; // Card 1 & 3 from right, Card 2 from left
