@@ -24,27 +24,25 @@ export default function HeroSection() {
     <section className="relative overflow-hidden min-h-screen flex flex-col">
       {/* Hero Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 text-center flex-1 flex flex-col justify-center">
+        {" "}
         <Badge
           variant="secondary"
-          className="mb-4 sm:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-gradient-to-r from-purple-100 to-blue-100 text-purple-900 border-0 rounded-full mx-auto w-fit"
+          className="mb-4 sm:mb-6 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 border-0 rounded-full mx-auto w-fit shadow-lg"
         >
           <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
           AI-Powered Instagram Feeds
         </Badge>
-
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent leading-tight px-2 sm:px-0">
           Perfect Instagram Feeds
           <br className="hidden sm:block" />
           <span className="sm:hidden"> </span>
           Made Effortlessly
         </h1>
-
         <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/80 mb-8 sm:mb-10 lg:mb-12 max-w-sm sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-light px-4 sm:px-0">
-          Upload up to 9 photos and let our AI create aesthetically pleasing
-          Instagram feeds. Stop overthinking your content strategy—we do the
+          Upload 9 photos and let our AI create an aesthetically pleasing feed
+          for your Instagram. Stop overthinking your content strategy—we do the
           work for you.
         </p>
-
         {/* Marquee Section */}
         <div className="mb-6 sm:mb-8 lg:mb-10">
           <div className="space-y-3 sm:space-y-4 lg:space-y-6">
@@ -73,7 +71,6 @@ export default function HeroSection() {
             </Marquee>
           </div>
         </div>
-
         {/* CTA Get Started */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-0">
           <div className="text-center mt-16 sm:mt-20 lg:mt-24">
@@ -89,11 +86,11 @@ export default function HeroSection() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <button className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg">
+                <button className="cursor-pointer inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg">
                   Get Started Today
                   <Sparkles className="h-5 w-5 ml-2" />
                 </button>
-                <button className="inline-flex items-center px-6 py-4 text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300">
+                <button className="cursor-pointer inline-flex items-center px-6 py-4 text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300">
                   <Play className="h-4 w-4 mr-2" />
                   Watch Demo
                 </button>
