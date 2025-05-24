@@ -5,10 +5,8 @@ import {
   Quote,
   ChevronLeft,
   ChevronRight,
-  Play,
 } from "lucide-react";
 import { useState } from "react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function FeaturesSection() {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -213,13 +211,6 @@ export default function FeaturesSection() {
         <div className="max-w-7xl mx-auto">
           {" "}
           {/* Instruction Alert */}
-          <div className="hidden lg:flex justify-center mb-8 lg:mb-12 ">
-            <Alert className="max-w-md">
-              <AlertDescription>
-                👇 Click on the features below to see them in action
-              </AlertDescription>
-            </Alert>
-          </div>{" "}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ">
             {/* Left Side - Feature Navigation */}
             <div className="space-y-6 lg:space-y-8">

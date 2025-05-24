@@ -1,15 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  ArrowRight,
-  Sparkles,
-  Instagram,
-  Star,
-  Check,
-  Play,
-  Sparkle,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import { Sparkles, Check, Play } from "lucide-react";
+
 import Marquee from "react-fast-marquee";
 
 export default function HeroSection() {

@@ -11,8 +11,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-background to-muted">
       <Navigation />
       <HeroSection />
-      <HowItWorksSection />
       <FeaturesSection />
+      <HowItWorksSection />
       <PricingSection />
       <CTASection />
       <Footer />
