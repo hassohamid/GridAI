@@ -194,18 +194,11 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {" "}
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <div className="inline-flex items-center justify-center px-6 py-3 mb-6 sm:mb-8 text-sm font-medium text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full shadow-lg">
+        <div className="text-center mb-5">
+          <div className="inline-flex items-center justify-center px-6 py-3 mb-6 sm:mb-8 text-sm font-medium text-white bg-gradient-to-r from-slate-800 via-slate-900 to-black rounded-full shadow-lg">
             <Sparkles className="h-4 w-4 mr-2" />
             Powerful Features
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-            Everything You Need for Perfect Feeds
-          </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
-            Professional-grade tools powered by AI to create Instagram feeds
-            that captivate and convert.
-          </p>
         </div>{" "}
         {/* Interactive Split-Screen Layout */}
         <div className="max-w-7xl mx-auto">

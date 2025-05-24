@@ -13,7 +13,6 @@ import {
   Zap,
   Crown,
   Star,
-  Calculator,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
@@ -68,6 +67,15 @@ export default function PricingSection() {
       badge: "Get Started",
       popular: false,
       savings: null,
+      theme: {
+        gradient: "from-slate-900 via-slate-800 to-slate-900",
+        border: "border-slate-700",
+        iconBg: "bg-gradient-to-br from-slate-600 to-slate-700",
+        iconColor: "text-white",
+        textPrimary: "text-white",
+        textSecondary: "text-slate-200",
+        textMuted: "text-slate-400",
+      },
     },
     {
       name: "Creator Pack",
@@ -85,6 +93,15 @@ export default function PricingSection() {
       badge: "Most Popular",
       popular: true,
       savings: "Save 18%",
+      theme: {
+        gradient: "from-gray-900 via-gray-800 to-black",
+        border: "border-amber-500/20",
+        iconBg: "bg-gradient-to-br from-amber-500 to-orange-600",
+        iconColor: "text-white",
+        textPrimary: "text-white",
+        textSecondary: "text-gray-200",
+        textMuted: "text-gray-400",
+      },
     },
     {
       name: "Pro Pack",
@@ -102,6 +119,15 @@ export default function PricingSection() {
       badge: "Best Value",
       popular: false,
       savings: "Save 34%",
+      theme: {
+        gradient: "from-neutral-900 via-neutral-800 to-neutral-900",
+        border: "border-neutral-700",
+        iconBg: "bg-gradient-to-br from-neutral-600 to-neutral-700",
+        iconColor: "text-white",
+        textPrimary: "text-white",
+        textSecondary: "text-neutral-200",
+        textMuted: "text-neutral-400",
+      },
     },
   ];
 
@@ -110,12 +136,8 @@ export default function PricingSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center justify-center px-6 py-3 mb-6 sm:mb-8 text-sm font-medium text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full shadow-lg">
-            <Calculator className="h-4 w-4 mr-2" />
-            Pay-As-You-Go Pricing
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-            Simple Credit Packs
+            Cheap. Fast. Results.
           </h2>{" "}
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto leading-relaxed mb-8">
             No subscriptions, no commitments. Buy credits when you need them and
@@ -146,17 +168,20 @@ export default function PricingSection() {
           <div className="relative">
             <div className="overflow-hidden pt-6" ref={emblaRef}>
               <div className="flex gap-4">
+                {" "}
                 {creditPacks.map((pack) => (
                   <div key={pack.name} className="flex-none w-[280px]">
-                    <Card className="relative border border-slate-200 bg-white h-full flex flex-col">
+                    <Card
+                      className={`relative bg-gradient-to-br ${pack.theme.gradient} ${pack.theme.border} h-full flex flex-col shadow-2xl`}
+                    >
                       {/* Popular Badge */}
                       {pack.badge && (
                         <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                           <Badge
-                            className={`px-4 py-1 shadow-md ${
+                            className={`px-4 py-1 shadow-lg ${
                               pack.popular
-                                ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
-                                : "bg-gradient-to-r from-emerald-500 to-teal-600 text-white"
+                                ? "bg-gradient-to-r from-amber-500 to-orange-600 text-white"
+                                : "bg-gradient-to-r from-slate-700 to-slate-800 text-slate-200"
                             }`}
                           >
                             {pack.badge}
@@ -166,36 +191,46 @@ export default function PricingSection() {
 
                       <CardHeader className="text-center space-y-4 pb-6 pt-8">
                         {/* Icon */}
-                        <div className="inline-flex p-3 rounded-2xl mx-auto bg-slate-100 text-slate-600">
+                        <div
+                          className={`inline-flex p-3 rounded-2xl mx-auto ${pack.theme.iconBg} ${pack.theme.iconColor} shadow-lg`}
+                        >
                           {pack.icon}
                         </div>
                         <div>
-                          <CardTitle className="text-xl font-bold mb-2">
+                          <CardTitle
+                            className={`text-xl font-bold mb-2 ${pack.theme.textPrimary}`}
+                          >
                             {pack.name}
                           </CardTitle>
-                          <CardDescription className="text-sm">
+                          <CardDescription
+                            className={`text-sm ${pack.theme.textSecondary}`}
+                          >
                             {pack.description}
                           </CardDescription>
                         </div>
                         {/* Pricing */}
                         <div className="space-y-2">
                           <div className="flex items-baseline justify-center gap-1">
-                            <span className="text-3xl font-bold text-slate-900">
+                            <span
+                              className={`text-3xl font-bold ${pack.theme.textPrimary}`}
+                            >
                               ${pack.price}
                             </span>
                           </div>
 
                           <div className="text-center">
-                            <div className="text-base font-semibold text-slate-700">
+                            <div
+                              className={`text-base font-semibold ${pack.theme.textSecondary}`}
+                            >
                               {pack.credits} Feed Credits
                             </div>
-                            <div className="text-xs text-slate-500">
+                            <div className={`text-xs ${pack.theme.textMuted}`}>
                               ${pack.costPerFeed.toFixed(2)} per feed grid
                             </div>
                           </div>
 
                           {pack.savings && (
-                            <div className="text-xs text-emerald-600 font-medium">
+                            <div className="text-xs text-emerald-400 font-medium">
                               {pack.savings}
                             </div>
                           )}
@@ -210,16 +245,18 @@ export default function PricingSection() {
                               key={featureIndex}
                               className="flex items-start gap-2"
                             >
-                              <Check className="h-3 w-3 text-emerald-500 mt-0.5 flex-shrink-0" />
-                              <span className="text-xs text-slate-700">
+                              <Check className="h-3 w-3 text-emerald-400 mt-0.5 flex-shrink-0" />
+                              <span
+                                className={`text-xs ${pack.theme.textSecondary}`}
+                              >
                                 {feature}
                               </span>
                             </li>
                           ))}
-                        </ul>{" "}
+                        </ul>
                         {/* CTA Button */}
                         <Button
-                          className="w-full py-4 text-sm font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white"
+                          className="w-full py-4 text-sm font-semibold bg-white text-black border-0"
                           variant="default"
                         >
                           {pack.popular ? (
@@ -262,22 +299,21 @@ export default function PricingSection() {
             </button>
           </div>
         </div>
-        {/* Desktop Grid (visible on lg and above) */}
+        {/* Desktop Grid (visible on lg and above) */}{" "}
         <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {creditPacks.map((pack) => (
             <Card
               key={pack.name}
-              className="relative border border-slate-200 bg-white h-full flex flex-col"
+              className={`relative bg-gradient-to-br ${pack.theme.gradient} ${pack.theme.border} h-full flex flex-col shadow-2xl`}
             >
-              {" "}
               {/* Popular Badge */}
               {pack.badge && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <Badge
-                    className={`px-4 py-1 shadow-md ${
+                    className={`px-4 py-1 shadow-lg ${
                       pack.popular
-                        ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white"
-                        : "bg-gradient-to-r from-emerald-500 to-teal-600 text-white"
+                        ? "bg-gradient-to-r from-amber-500 to-orange-600 text-white"
+                        : "bg-gradient-to-r from-slate-700 to-slate-800 text-slate-200"
                     }`}
                   >
                     {pack.badge}
@@ -286,36 +322,46 @@ export default function PricingSection() {
               )}
               <CardHeader className="text-center space-y-4 pb-6 pt-8">
                 {/* Icon */}
-                <div className="inline-flex p-3 rounded-2xl mx-auto bg-slate-100 text-slate-600">
+                <div
+                  className={`inline-flex p-3 rounded-2xl mx-auto ${pack.theme.iconBg} ${pack.theme.iconColor} shadow-lg`}
+                >
                   {pack.icon}
                 </div>
                 <div>
-                  <CardTitle className="text-xl sm:text-2xl font-bold mb-2">
+                  <CardTitle
+                    className={`text-xl sm:text-2xl font-bold mb-2 ${pack.theme.textPrimary}`}
+                  >
                     {pack.name}
                   </CardTitle>
-                  <CardDescription className="text-base">
+                  <CardDescription
+                    className={`text-base ${pack.theme.textSecondary}`}
+                  >
                     {pack.description}
                   </CardDescription>
                 </div>
                 {/* Pricing */}
                 <div className="space-y-2">
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl sm:text-5xl font-bold text-slate-900">
+                    <span
+                      className={`text-4xl sm:text-5xl font-bold ${pack.theme.textPrimary}`}
+                    >
                       ${pack.price}
                     </span>
                   </div>
 
                   <div className="text-center">
-                    <div className="text-lg font-semibold text-slate-700">
+                    <div
+                      className={`text-lg font-semibold ${pack.theme.textSecondary}`}
+                    >
                       {pack.credits} Feed Credits
                     </div>
-                    <div className="text-sm text-slate-500">
+                    <div className={`text-sm ${pack.theme.textMuted}`}>
                       ${pack.costPerFeed.toFixed(2)} per feed grid
                     </div>
                   </div>
 
                   {pack.savings && (
-                    <div className="text-sm text-emerald-600 font-medium">
+                    <div className="text-sm text-emerald-400 font-medium">
                       {pack.savings}
                     </div>
                   )}
@@ -326,14 +372,16 @@ export default function PricingSection() {
                 <ul className="space-y-3 flex-1">
                   {pack.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
-                      <Check className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-slate-700">{feature}</span>
+                      <Check className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span className={`text-sm ${pack.theme.textSecondary}`}>
+                        {feature}
+                      </span>
                     </li>
                   ))}
-                </ul>{" "}
+                </ul>
                 {/* CTA Button */}
                 <Button
-                  className="w-full py-5 text-base font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white"
+                  className="w-full py-5 text-base font-semibold bg-white text-black border-0"
                   variant="default"
                 >
                   {pack.popular ? (
@@ -350,7 +398,7 @@ export default function PricingSection() {
                 </Button>
               </CardContent>
             </Card>
-          ))}{" "}
+          ))}
         </div>
       </div>
     </section>

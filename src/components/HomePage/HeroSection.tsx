@@ -27,7 +27,7 @@ export default function HeroSection() {
         {" "}
         <Badge
           variant="secondary"
-          className="mb-4 sm:mb-6 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 border-0 rounded-full mx-auto w-fit shadow-lg"
+          className="mb-4 sm:mb-6 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-slate-800 via-slate-900 to-black border-0 rounded-full mx-auto w-fit shadow-lg"
         >
           <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
           AI-Powered Instagram Feeds
