@@ -7,6 +7,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function FeaturesSection() {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -202,10 +203,79 @@ export default function FeaturesSection() {
         {/* Interactive Split-Screen Layout */}
         <div className="max-w-7xl mx-auto">
           {" "}
-          {/* Instruction Alert */}
+          {/* Instruction Alert */}{" "}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ">
-            {/* Left Side - Feature Navigation */}
-            <div className="space-y-6 lg:space-y-8">
+            {" "}            {/* Mobile Staggered Cards Animation */}
+            <div className="lg:hidden relative h-[120vh] overflow-visible">
+              {features.map((feature, index) => {
+                const isFromRight = index % 2 === 0; // Card 1 & 3 from right, Card 2 from left
+
+                return (
+                  <motion.div
+                    key={feature.id}
+                    className="absolute inset-x-0 flex items-center justify-center px-4"
+                    initial={{
+                      x: isFromRight ? "70%" : "-70%",
+                      rotate: isFromRight ? 12 : -12,
+                      opacity: 0.2,
+                    }}
+                    whileInView={{
+                      x: 0,
+                      rotate: 0,
+                      opacity: 1,
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      delay: index * 0.2,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    }}
+                    viewport={{
+                      amount: 0.3,
+                      once: false,
+                    }}
+                    style={{
+                      zIndex: features.length - index,
+                      top: `${index * 35 + 5}vh`,
+                    }}
+                  >
+                    <div
+                      className={`relative p-6 rounded-3xl shadow-2xl border-2 border-white/20 bg-gradient-to-br ${feature.bgColor} backdrop-blur-sm w-full max-w-sm mx-auto transform hover:scale-105 transition-transform`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div
+                          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-2xl shadow-xl`}
+                        >
+                          {feature.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-slate-800 mb-3">
+                            {feature.title}
+                          </h3>
+                          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                            {feature.description}
+                          </p>
+                          <div className="space-y-2">
+                            {feature.benefits.slice(0, 2).map((benefit, i) => (
+                              <div
+                                key={i}
+                                className="flex items-center text-emerald-600"
+                              >
+                                <Check className="h-4 w-4 mr-2 flex-shrink-0" />
+                                <span className="text-sm font-medium">
+                                  {benefit}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+            {/* Desktop Feature Navigation */}
+            <div className="hidden lg:block space-y-6 lg:space-y-8">
               {features.map((feature, index) => (
                 <div
                   key={feature.id}
