@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Upload, Sparkles, Download, ArrowRight, Check } from "lucide-react";
+import { Upload, Sparkles, Download, ArrowRight } from "lucide-react";
 
 export default function HowItWorksSection() {
   const [isVisible, setIsVisible] = useState(false);
