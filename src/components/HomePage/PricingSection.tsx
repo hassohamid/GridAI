@@ -78,7 +78,7 @@ export default function PricingSection() {
               </div>
               {/* CTA Button */}
               <Button
-                className="w-full py-4 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 group"
+                className=" cursor-pointer w-full py-4 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 group"
                 size="lg"
               >
                 Create Your Feed Now
@@ -88,8 +88,7 @@ export default function PricingSection() {
               <div className="text-center mt-6">
                 <div className="inline-flex items-center text-sm text-slate-500">
                   <Shield className="h-4 w-4 mr-2 text-emerald-600" />
-                  Secure payment • Instant delivery • 30-day satisfaction
-                  guarantee
+                  Secure payment • Instant delivery
                 </div>
               </div>
             </div>

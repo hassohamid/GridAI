@@ -122,9 +122,9 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-        </div>
+        </div>{" "}
         {/* Process Flow - 2025 Minimalist Design */}
-        <div className="mb-8 sm:mb-12 lg:mb-16">
+        <div className="mb-8 sm:mb-12 lg:mb-16 hidden md:block">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 sm:mb-10">
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 text-foreground">
