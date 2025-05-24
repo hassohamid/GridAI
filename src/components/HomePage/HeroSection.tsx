@@ -90,14 +90,14 @@ export default function HeroSection() {
               <ReactCompareSlider
                 itemOne={
                   <ReactCompareSliderImage
-                    src="/Nofilter.jpg"
+                    src="/before.jpg"
                     alt="Original photo"
                     className="w-full h-full object-cover"
                   />
                 }
                 itemTwo={
                   <ReactCompareSliderImage
-                    src="/Filter.jpg"
+                    src="/after.jpg"
                     alt="AI-enhanced photo"
                     className="w-full h-full object-cover"
                   />
@@ -105,7 +105,7 @@ export default function HeroSection() {
                 position={50}
                 className="rounded-lg sm:rounded-xl overflow-hidden"
                 style={{
-                  height: "500px",
+                  height: "100%",
                   width: "100%",
                 }}
                 boundsPadding={0}
