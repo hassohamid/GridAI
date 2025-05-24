@@ -231,7 +231,7 @@ export default function FeaturesSection() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ">
             {" "}
             {/* Mobile Staggered Cards Animation */}
-            <div className="lg:hidden relative h-[120vh] overflow-visible">
+            <div className="lg:hidden relative h-[120vh] overflow-hidden">
               {features.map((feature, index) => {
                 const isFromRight = index % 2 === 0; // Card 1 & 3 from right, Card 2 from left
 
@@ -240,8 +240,8 @@ export default function FeaturesSection() {
                     key={feature.id}
                     className="absolute inset-x-0 flex items-center justify-center px-4"
                     initial={{
-                      x: isFromRight ? "70%" : "-70%",
-                      rotate: isFromRight ? 12 : -12,
+                      x: isFromRight ? "50%" : "-50%",
+                      rotate: isFromRight ? 8 : -8,
                       opacity: 0.2,
                     }}
                     whileInView={{
