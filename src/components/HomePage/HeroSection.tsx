@@ -102,7 +102,7 @@ export default function HeroSection() {
                     className="w-full h-full object-cover"
                   />
                 }
-                position={50}
+                position={90}
                 className="rounded-lg sm:rounded-xl overflow-hidden"
                 style={{
                   height: "100%",
