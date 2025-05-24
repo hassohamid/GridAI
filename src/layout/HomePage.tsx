@@ -1,10 +1,10 @@
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import PricingSection from "@/components/PricingSection";
-import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
+import Navigation from "@/components/HomePage/Navigation";
+import HeroSection from "@/components/HomePage/HeroSection";
+import HowItWorksSection from "@/components/HomePage/HowItWorksSection";
+import FeaturesSection from "@/components/HomePage/FeaturesSection";
+import PricingSection from "@/components/HomePage/PricingSection";
+import CTASection from "@/components/HomePage/CTASection";
+import Footer from "@/components/HomePage/Footer";
 
 export default function HomePage() {
   return (
