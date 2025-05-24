@@ -23,7 +23,7 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden min-h-screen flex flex-col">
       {/* Hero Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 text-center flex-1 flex flex-col justify-center">
+      <div className="relative z-10 container mx-auto px-4 text-center pt-20 flex flex-col justify-center">
         {" "}
         <Badge
           variant="secondary"
@@ -70,49 +70,8 @@ export default function HeroSection() {
               ))}
             </Marquee>
           </div>
-        </div>
-        {/* CTA Get Started */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-0">
-          <div className="text-center mt-16 sm:mt-20 lg:mt-24">
-            <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary/5 via-purple-50 to-primary/5 rounded-3xl p-8 sm:p-12 border border-primary/10">
-              <div className="mb-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
-                  Ready to Transform Your Instagram Feed?
-                </h3>
-                <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-                  Join thousands of creators who use GridAI to create stunning,
-                  professional Instagram feeds that drive engagement and growth.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <button className="cursor-pointer inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg">
-                  Get Started Today
-                  <Sparkles className="h-5 w-5 ml-2" />
-                </button>
-                <button className="cursor-pointer inline-flex items-center px-6 py-4 text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300">
-                  <Play className="h-4 w-4 mr-2" />
-                  Watch Demo
-                </button>
-              </div>
-
-              <div className="flex items-center justify-center gap-8 text-sm text-slate-500 ">
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500" />
-                  Professional results guaranteed
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500" />
-                  AI-powered optimization
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500" />
-                  Instant downloads
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div>{" "}
+        {/* CTA Section */}
       </div>
     </section>
   );

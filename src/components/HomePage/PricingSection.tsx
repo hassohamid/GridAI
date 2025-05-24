@@ -157,14 +157,16 @@ export default function PricingSection() {
             </div>
           </div>
         </div>{" "}
-        {/* Pricing Cards */}
-        {/* Mobile Carousel (visible on sm and below) */}
-        <div className="block lg:hidden px-12">
+        {/* Pricing Cards */} {/* Mobile Carousel (visible on sm and below) */}
+        <div className="block lg:hidden px-6 sm:px-12">
           <div className="relative">
             <div className="overflow-hidden pt-6" ref={emblaRef}>
-              <div className="flex gap-4">
+              <div className="flex gap-3 sm:gap-4">
                 {creditPacks.map((pack) => (
-                  <div key={pack.name} className="flex-none w-[300px]">
+                  <div
+                    key={pack.name}
+                    className="flex-none w-[280px] sm:w-[300px]"
+                  >
                     <Card
                       className={`relative bg-gradient-to-br ${pack.theme.gradient} ${pack.theme.border} h-full flex flex-col shadow-xl hover:shadow-2xl transition-shadow duration-300 backdrop-blur-sm`}
                     >
@@ -181,48 +183,42 @@ export default function PricingSection() {
                             {pack.badge}
                           </Badge>
                         </div>
-                      )}
-                      <CardHeader className="text-center space-y-6 pb-6 pt-8">
+                      )}{" "}
+                      <CardHeader className="text-center space-y-4 sm:space-y-6 pb-4 sm:pb-6 pt-6 sm:pt-8">
                         {/* Icon with Glass Morphism */}
                         <div
-                          className={`inline-flex p-4 rounded-2xl mx-auto ${pack.theme.iconBg} ${pack.theme.iconColor} shadow-lg backdrop-blur-sm border border-white/20`}
+                          className={`inline-flex p-3 sm:p-4 rounded-2xl mx-auto ${pack.theme.iconBg} ${pack.theme.iconColor} shadow-lg backdrop-blur-sm border border-white/20`}
                         >
                           {pack.icon}
                         </div>
                         <div>
                           <CardTitle
-                            className={`text-xl font-bold mb-3 ${pack.theme.textPrimary}`}
+                            className={`text-lg sm:text-xl font-bold mb-3 ${pack.theme.textPrimary} whitespace-nowrap`}
                           >
                             {pack.name}
                           </CardTitle>
                           <CardDescription
-                            className={`text-sm leading-relaxed ${pack.theme.textSecondary}`}
+                            className={`text-xs sm:text-sm leading-relaxed ${pack.theme.textSecondary}`}
                           >
                             {pack.description}
                           </CardDescription>
-                        </div>
+                        </div>{" "}
                         {/* Pricing */}
-                        <div className="space-y-3">
+                        <div className="space-y-2 sm:space-y-3">
                           <div className="flex items-baseline justify-center gap-1">
                             <span
-                              className={`text-4xl font-bold ${pack.theme.textPrimary}`}
+                              className={`text-3xl sm:text-4xl font-bold ${pack.theme.textPrimary}`}
                             >
                               ${pack.price}
                             </span>
-                          </div>
-
-                          <div className="text-center space-y-1">
+                          </div>{" "}
+                          <div className="text-center">
                             <div
-                              className={`text-base font-semibold ${pack.theme.textSecondary}`}
+                              className={`text-sm sm:text-base font-semibold ${pack.theme.textSecondary} whitespace-nowrap`}
                             >
-                              {pack.credits} Feed Credits
-                            </div>
-                            <div className={`text-xs ${pack.theme.textMuted}`}>
-                              ${pack.costPerFeed.toFixed(2)} per feed •{" "}
-                              {pack.credits * 9} total photos
+                              {pack.credits} Credits
                             </div>
                           </div>
-
                           {pack.savings && (
                             <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">
                               {pack.savings}
@@ -230,17 +226,17 @@ export default function PricingSection() {
                           )}
                         </div>
                       </CardHeader>{" "}
-                      <CardContent className="space-y-6 flex-1 flex flex-col px-6 pb-8">
+                      <CardContent className="space-y-4 sm:space-y-6 flex-1 flex flex-col px-4 sm:px-6 pb-6 sm:pb-8">
                         {/* Features */}
-                        <ul className="space-y-3 flex-1">
+                        <ul className="space-y-2 sm:space-y-3 flex-1">
                           {pack.features.map((feature, featureIndex) => (
                             <li
                               key={featureIndex}
-                              className="flex items-start gap-3"
+                              className="flex items-start gap-2 sm:gap-3"
                             >
-                              <Check className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                              <Check className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
                               <span
-                                className={`text-sm leading-relaxed ${pack.theme.textSecondary}`}
+                                className={`text-xs sm:text-sm leading-relaxed ${pack.theme.textSecondary}`}
                               >
                                 {feature}
                               </span>
@@ -249,7 +245,7 @@ export default function PricingSection() {
                         </ul>
                         {/* CTA Button */}
                         <Button
-                          className={`w-full py-4 text-sm font-semibold transition-all duration-200 ${
+                          className={`w-full py-3 sm:py-4 text-xs sm:text-sm font-semibold transition-all duration-200 ${
                             pack.popular
                               ? "bg-white text-slate-900 hover:bg-slate-50 shadow-lg"
                               : "bg-white text-slate-900 hover:bg-slate-50 shadow-md hover:shadow-lg"
@@ -276,7 +272,7 @@ export default function PricingSection() {
             </div>{" "}
             {/* Navigation Arrows */}
             <button
-              className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl border border-slate-200/60 flex items-center justify-center transition-all duration-200 ${
+              className={`absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl border border-slate-200/60 flex items-center justify-center transition-all duration-200 ${
                 canScrollPrev
                   ? "opacity-100 hover:bg-white hover:shadow-2xl"
                   : "opacity-40"
@@ -284,10 +280,10 @@ export default function PricingSection() {
               onClick={scrollPrev}
               disabled={!canScrollPrev}
             >
-              <ChevronLeft className="h-5 w-5 text-slate-700" />
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-slate-700" />
             </button>
             <button
-              className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl border border-slate-200/60 flex items-center justify-center transition-all duration-200 ${
+              className={`absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl border border-slate-200/60 flex items-center justify-center transition-all duration-200 ${
                 canScrollNext
                   ? "opacity-100 hover:bg-white hover:shadow-2xl"
                   : "opacity-40"
@@ -295,7 +291,7 @@ export default function PricingSection() {
               onClick={scrollNext}
               disabled={!canScrollNext}
             >
-              <ChevronRight className="h-5 w-5 text-slate-700" />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-slate-700" />
             </button>
           </div>
         </div>{" "}
@@ -347,20 +343,14 @@ export default function PricingSection() {
                     >
                       ${pack.price}
                     </span>
-                  </div>
-
-                  <div className="text-center space-y-2">
+                  </div>{" "}
+                  <div className="text-center">
                     <div
                       className={`text-xl font-semibold ${pack.theme.textSecondary}`}
                     >
-                      {pack.credits} Feed Credits
-                    </div>
-                    <div className={`text-sm ${pack.theme.textMuted}`}>
-                      ${pack.costPerFeed.toFixed(2)} per feed •{" "}
-                      {pack.credits * 9} total photos
+                      {pack.credits} Credits
                     </div>
                   </div>
-
                   {pack.savings && (
                     <div className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 text-sm font-medium rounded-full">
                       {pack.savings}
