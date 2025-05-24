@@ -62,10 +62,9 @@ export default function FeaturesSection() {
       mockupType: "speed",
     },
   ];
-
   const testimonials = [
     {
-      name: "Sarah Chen",
+      name: "Anonymous",
       role: "Fashion Influencer",
       avatar: "👩‍💼",
       content:
@@ -74,7 +73,7 @@ export default function FeaturesSection() {
       followers: "120K",
     },
     {
-      name: "Marcus Rodriguez",
+      name: "Anonymous",
       role: "Travel Blogger",
       avatar: "👨‍💻",
       content:
@@ -83,7 +82,7 @@ export default function FeaturesSection() {
       followers: "85K",
     },
     {
-      name: "Emma Thompson",
+      name: "Anonymous",
       role: "Food Content Creator",
       avatar: "👩‍🍳",
       content:
@@ -323,11 +322,13 @@ export default function FeaturesSection() {
                           {testimonials[currentTestimonial].followers} followers
                         </div>
                       </div>
-                    </div>
-
-                    <p className="text-slate-100 leading-relaxed mb-4">
+                    </div>                    <p className="text-slate-100 leading-relaxed mb-3">
                       "{testimonials[currentTestimonial].content}"
                     </p>
+
+                    <div className="text-xs text-slate-400 mb-4 italic">
+                      *Names kept anonymous to protect creator privacy
+                    </div>
 
                     <div className="flex items-center gap-1">
                       {Array.from({
