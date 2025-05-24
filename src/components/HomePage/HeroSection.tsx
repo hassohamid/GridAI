@@ -1,7 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Sparkles } from "lucide-react";
-
 import Marquee from "react-fast-marquee";
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from "react-compare-slider";
 
 export default function HeroSection() {
   const images = [
@@ -69,8 +72,57 @@ export default function HeroSection() {
                 />
               ))}
             </Marquee>
+          </div>{" "}
+        </div>
+        {/* Before/After Comparison */}
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <div className="max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl mx-auto">
+            <div className="mb-4 sm:mb-6">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                See the AI Magic
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground/70">
+                Drag the slider to see how our AI enhances your photos
+              </p>
+            </div>
+
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 p-2 sm:p-3">
+              <ReactCompareSlider
+                itemOne={
+                  <ReactCompareSliderImage
+                    src="/Nofilter.jpg"
+                    alt="Original photo"
+                    className="w-full h-full object-cover"
+                  />
+                }
+                itemTwo={
+                  <ReactCompareSliderImage
+                    src="/Filter.jpg"
+                    alt="AI-enhanced photo"
+                    className="w-full h-full object-cover"
+                  />
+                }
+                position={50}
+                className="rounded-lg sm:rounded-xl overflow-hidden"
+                style={{
+                  height: "500px",
+                  width: "100%",
+                }}
+                boundsPadding={0}
+                changePositionOnHover={true}
+                transition="0.3s ease-in-out"
+              />
+
+              {/* Labels */}
+              <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 bg-black/60 backdrop-blur-sm text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium">
+                Original
+              </div>
+              <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 bg-primary/80 backdrop-blur-sm text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs sm:text-sm font-medium">
+                GridAI
+              </div>
+            </div>
           </div>
-        </div>{" "}
+        </div>
         {/* CTA Section */}
       </div>
     </section>
