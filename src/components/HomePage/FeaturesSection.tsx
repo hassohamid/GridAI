@@ -11,7 +11,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function FeaturesSection() {
-  const [activeFeature, setActiveFeature] = useState(0);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const features = [
@@ -149,65 +148,12 @@ export default function FeaturesSection() {
           </div>
         </div>
       );
-    }
-
-    if (type === "grid") {
-      return (
-        <div className="relative h-64 flex flex-col items-center justify-center p-6">
-          <div className="w-full max-w-sm mx-auto text-center">
-            <div className="text-lg font-medium text-slate-600 mb-6">
-              Average Engagement Rate
-            </div>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <div className="text-3xl font-bold text-slate-400 mb-1">
-                  2.1%
-                </div>
-                <div className="text-sm text-slate-500">Before</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-purple-600 mb-1">
-                  3.8%
-                </div>
-                <div className="text-sm text-purple-600">After GridAI</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    } // Speed mockup
+    } // For grid and speed mockups, show empty placeholder
     return (
       <div className="relative h-64 flex items-center justify-center p-6">
-        <div className="w-full max-w-lg">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center">
-              <span className="text-white text-xl">⚡</span>
-            </div>{" "}
-            <div>
-              <div className="text-xl font-bold text-slate-800">
-                Processing Complete!
-              </div>
-              <div className="text-base text-slate-500">
-                Processed in 30 seconds
-              </div>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="flex justify-between text-lg">
-              <span className="font-medium text-slate-700">AI Enhancement</span>
-              <span className="text-emerald-600 font-semibold">✓ Complete</span>
-            </div>
-            <div className="flex justify-between text-lg">
-              <span className="font-medium text-slate-700">
-                Grid Optimization
-              </span>
-              <span className="text-emerald-600 font-semibold">✓ Complete</span>
-            </div>
-            <div className="flex justify-between text-lg">
-              <span className="font-medium text-slate-700">Export Ready</span>
-              <span className="text-emerald-600 font-semibold">✓ Ready</span>
-            </div>
-          </div>
+        <div className="text-center text-slate-500">
+          <div className="text-lg font-medium mb-2">Feature Preview</div>
+          <div className="text-sm">Content coming soon</div>
         </div>
       </div>
     );
@@ -298,30 +244,17 @@ export default function FeaturesSection() {
                   </motion.div>
                 );
               })}
-            </div>
-            {/* Desktop Feature Navigation */}
+            </div>{" "}
+            {/* Desktop Feature Navigation - Non-clickable display only */}
             <div className="hidden lg:block space-y-6 lg:space-y-8">
-              {features.map((feature, index) => (
+              {features.map((feature) => (
                 <div
                   key={feature.id}
-                  className={`relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:cursor-pointer transition-all duration-500 ${
-                    activeFeature === index
-                      ? `lg:bg-gradient-to-br lg:${feature.bgColor} shadow-xl lg:scale-[1.02] lg:border-2 lg:border-white bg-white/80 border border-slate-100`
-                      : "bg-white/80 lg:hover:bg-white shadow-lg lg:hover:shadow-xl border border-slate-100"
-                  }`}
-                  onClick={() =>
-                    window.innerWidth >= 1024 && setActiveFeature(index)
-                  }
+                  className="relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-500 bg-white/80 shadow-lg border border-slate-100"
                 >
                   <div className="flex items-start gap-4 sm:gap-6">
                     <div
-                      className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${
-                        feature.color
-                      } flex items-center justify-center text-xl sm:text-2xl shadow-lg transform transition-transform duration-300 ${
-                        activeFeature === index
-                          ? "lg:scale-110"
-                          : "lg:hover:scale-105"
-                      }`}
+                      className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-xl sm:text-2xl shadow-lg`}
                     >
                       {feature.icon}
                     </div>
@@ -346,50 +279,22 @@ export default function FeaturesSection() {
                         ))}
                       </div>
                     </div>
-                  </div>{" "}
-                  {activeFeature === index && (
-                    <div className="hidden lg:block absolute -right-2 top-1/2 transform -translate-y-1/2">
-                      <div className="w-4 h-8 bg-gradient-to-r from-primary to-primary/80 rounded-l-lg"></div>
-                    </div>
-                  )}
+                  </div>
                 </div>
               ))}
             </div>{" "}
-            {/* Right Side - Interactive Preview & Testimonials */}
-            <div className="hidden lg:block space-y-8">
-              {/* Fixed Height Preview Container */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 h-96">
-                {/* Header - Only show for certain features */}
-                {(activeFeature === 0 || activeFeature === 2) && (
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-800">
-                      {activeFeature === 0
-                        ? "Live Preview"
-                        : "Speed Demonstration"}
-                    </h3>
-                    {activeFeature === 0 && (
-                      <div className="flex items-center gap-2 text-emerald-600">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium">Real-time</span>
-                      </div>
-                    )}
-                  </div>
-                )}
-                {/* Content */}
-                <div
-                  className={`transform transition-all duration-700 ${
-                    activeFeature === 0 || activeFeature === 2 ? "" : "pt-6"
-                  }`}
-                >
-                  <MockupPreview type={features[activeFeature].mockupType} />
-                </div>
+            {/* Right Side - Preview, Testimonials & Stats */}
+            <div className="hidden lg:block space-y-6 lg:space-y-8">
+              {/* AI Enhancement Preview - Just the images */}
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100">
+                <MockupPreview type="enhancement" />
               </div>
+
               {/* Testimonials Carousel */}
-              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden h-80">
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                <div className="relative z-10 h-full flex flex-col">
+                <div className="relative z-10">
                   <div className="flex items-center justify-between mb-6">
-                    {" "}
                     <div className="flex items-center gap-3">
                       <Quote className="h-6 w-6 text-cyan-400" />
                       <span className="text-sm font-medium text-slate-300">
@@ -412,30 +317,27 @@ export default function FeaturesSection() {
                     </div>
                   </div>
 
-                  <div className="transform transition-all duration-500 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="text-3xl">
-                          {testimonials[currentTestimonial].avatar}
+                  <div className="transform transition-all duration-500">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="text-3xl">
+                        {testimonials[currentTestimonial].avatar}
+                      </div>
+                      <div>
+                        <div className="font-semibold">
+                          {testimonials[currentTestimonial].name}
                         </div>
-                        <div>
-                          <div className="font-semibold">
-                            {testimonials[currentTestimonial].name}
-                          </div>
-                          <div className="text-sm text-slate-300">
-                            {testimonials[currentTestimonial].role}
-                          </div>{" "}
-                          <div className="text-xs text-cyan-400">
-                            {testimonials[currentTestimonial].followers}{" "}
-                            followers
-                          </div>
+                        <div className="text-sm text-slate-300">
+                          {testimonials[currentTestimonial].role}
                         </div>
-                      </div>{" "}
-                      <p className="text-slate-100 leading-relaxed">
-                        "{testimonials[currentTestimonial].content}"
-                      </p>
+                        <div className="text-xs text-cyan-400">
+                          {testimonials[currentTestimonial].followers} followers
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1 mt-4">
+                    <p className="text-slate-100 leading-relaxed mb-4">
+                      "{testimonials[currentTestimonial].content}"
+                    </p>
+                    <div className="flex items-center gap-1">
                       {Array.from({
                         length: testimonials[currentTestimonial].rating,
                       }).map((_, i) => (
@@ -448,12 +350,13 @@ export default function FeaturesSection() {
                   </div>
                 </div>
               </div>
+
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
                   <div className="text-2xl font-bold text-slate-800">99.9%</div>
                   <div className="text-xs text-slate-600">Accuracy</div>
-                </div>{" "}
+                </div>
                 <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
                   <div className="text-2xl font-bold text-slate-800">30s</div>
                   <div className="text-xs text-slate-600">Avg Process</div>
