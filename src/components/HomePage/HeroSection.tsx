@@ -9,10 +9,16 @@ export default function HeroSection() {
     "/1.jpg",
     "/2.jpg",
     "/3.jpg",
-    "/Row2.jpg",
-    "/Row2-2.jpg",
-    "/Row2-3.jpg",
-    "/Row2-4.jpg",
+    "/4.jpg",
+    "/5.jpg",
+    "/6.jpg",
+    "/7.jpg",
+    "/8.jpg",
+    "/9.jpg",
+    "/10.jpg",
+    "/11.jpg",
+    "/12.jpg",
+    "/13.jpg",
   ];
   return (
     <section className="relative overflow-hidden">
