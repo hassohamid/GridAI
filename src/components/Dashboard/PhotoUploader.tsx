@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Upload, X, Image as ImageIcon, RotateCcw, Plus } from "lucide-react";
@@ -84,69 +83,67 @@ export default function PhotoUploader({
   return (
     <div className="space-y-6">
       {/* Upload Area */}
-      <Card className="relative">
-        <div
-          className={`
-            relative p-8 border-2 border-dashed rounded-xl transition-all duration-200 cursor-pointer
-            ${
-              isDragOver
-                ? "border-primary bg-primary/5 scale-[1.02]"
-                : "border-border hover:border-primary/50 hover:bg-accent/30"
-            }
-            ${!canAddMore ? "opacity-50 cursor-not-allowed" : ""}
-          `}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onClick={canAddMore ? openFileDialog : undefined}
-        >
-          <input
-            ref={fileInputRef}
-            type="file"
-            multiple
-            accept="image/*"
-            onChange={(e) => handleFileSelect(e.target.files)}
-            className="hidden"
-            disabled={!canAddMore}
-          />
+      <div
+        className={`
+          relative p-8 border-2 border-dashed rounded-xl transition-all duration-200 cursor-pointer
+          ${
+            isDragOver
+              ? "border-primary bg-primary/5 scale-[1.02]"
+              : "border-border hover:border-primary/50 hover:bg-accent/30"
+          }
+          ${!canAddMore ? "opacity-50 cursor-not-allowed" : ""}
+        `}
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onClick={canAddMore ? openFileDialog : undefined}
+      >
+        <input
+          ref={fileInputRef}
+          type="file"
+          multiple
+          accept="image/*"
+          onChange={(e) => handleFileSelect(e.target.files)}
+          className="hidden"
+          disabled={!canAddMore}
+        />
 
-          <div className="text-center space-y-4">
-            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-              <Upload className="h-8 w-8 text-primary" />
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-lg font-semibold">
-                {canAddMore ? "Upload Your Photos" : "Upload Complete"}
-              </h3>
-              <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-                {canAddMore
-                  ? `Drag and drop up to ${maxPhotos} photos or click to browse. We'll arrange them into the perfect Instagram feed.`
-                  : `You've uploaded ${photos.length} photos. Ready to generate your feed!`}
-              </p>
-            </div>
-
-            {canAddMore && (
-              <div className="flex items-center justify-center space-x-4 text-xs text-muted-foreground">
-                <span>JPG, PNG, WebP</span>
-                <span>•</span>
-                <span>Max 10MB each</span>
-              </div>
-            )}
+        <div className="text-center space-y-4">
+          <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+            <Upload className="h-8 w-8 text-primary" />
           </div>
 
-          {isDragOver && (
-            <div className="absolute inset-0 bg-primary/10 border-2 border-primary rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <Plus className="h-8 w-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium text-primary">
-                  Drop photos here
-                </p>
-              </div>
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold">
+              {canAddMore ? "Upload Your Photos" : "Upload Complete"}
+            </h3>
+            <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+              {canAddMore
+                ? `Drag and drop up to ${maxPhotos} photos or click to browse. We'll arrange them into the perfect Instagram feed.`
+                : `You've uploaded ${photos.length} photos. Ready to generate your feed!`}
+            </p>
+          </div>
+
+          {canAddMore && (
+            <div className="flex items-center justify-center space-x-4 text-xs text-muted-foreground">
+              <span>JPG, PNG, WebP</span>
+              <span>•</span>
+              <span>Max 10MB each</span>
             </div>
           )}
         </div>
-      </Card>
+
+        {isDragOver && (
+          <div className="absolute inset-0 bg-primary/10 border-2 border-primary rounded-xl flex items-center justify-center">
+            <div className="text-center">
+              <Plus className="h-8 w-8 text-primary mx-auto mb-2" />
+              <p className="text-sm font-medium text-primary">
+                Drop photos here
+              </p>
+            </div>{" "}
+          </div>
+        )}
+      </div>
 
       {/* Photos Grid */}
       {photos.length > 0 && (

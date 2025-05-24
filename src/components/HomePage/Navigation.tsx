@@ -8,7 +8,10 @@ export default function Navigation() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Grid3X3 className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold">GridAI</span>
+
+          <span className="text-xl font-bold">
+            <Link to="/">GridAI</Link>
+          </span>
         </div>
         <div className="flex items-center space-x-4">
           <Button variant="ghost" asChild>

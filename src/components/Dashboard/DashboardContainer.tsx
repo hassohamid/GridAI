@@ -13,7 +13,7 @@ interface Photo {
 export default function DashboardContainer() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [isGenerated, setIsGenerated] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated] = useState(false);
   const navigate = useNavigate();
 
   const handlePhotosChange = (newPhotos: Photo[]) => {
@@ -26,14 +26,8 @@ export default function DashboardContainer() {
     // In a real app, this would trigger the actual AI generation
     console.log("Generating AI feed for photos:", photos);
   };
-
   const handleLogin = () => {
     navigate("/login");
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    // In a real app, you'd clear auth tokens here
   };
 
   const handleRegenerateOrder = () => {
@@ -47,28 +41,44 @@ export default function DashboardContainer() {
     console.log("Downloading generated feed");
     alert("Download functionality would be implemented here!");
   };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left Column - Upload & Generation */}
-          <div className="lg:col-span-2 space-y-8">
-            <PhotoUploader onPhotosChange={handlePhotosChange} maxPhotos={9} />
+    <div className="flex-1 min-h-full">
+      <div className="container mx-auto px-4 py-8 lg:py-12 min-h-full">
+        <div className="max-w-7xl mx-auto">
+          {/* Desktop Layout - Improved spacing and layout */}
+          <div className="hidden lg:block">
+            <div className="grid lg:grid-cols-3 xl:grid-cols-5 gap-8 xl:gap-12 min-h-[calc(100vh-200px)]">
+              {/* Left Column - Upload Area - Takes more space */}
+              <div className="lg:col-span-2 xl:col-span-3 flex flex-col">
+                <PhotoUploader
+                  onPhotosChange={handlePhotosChange}
+                  maxPhotos={9}
+                />
+              </div>
 
-            {/* Mobile Generation Panel */}
-            <div className="lg:hidden">
-              <GenerationPanel
-                photos={photos}
-                isAuthenticated={isAuthenticated}
-                onGenerate={handleGenerate}
-                onLogin={handleLogin}
-              />
+              {/* Right Column - Preview & Generation - Sticky positioning */}
+              <div className="lg:col-span-1 xl:col-span-2 space-y-6 lg:sticky lg:top-8 lg:self-start">
+                <FeedPreview
+                  photos={photos}
+                  isGenerated={isGenerated}
+                  onRegenerateOrder={handleRegenerateOrder}
+                  onDownload={handleDownload}
+                />
+
+                <GenerationPanel
+                  photos={photos}
+                  isAuthenticated={isAuthenticated}
+                  onGenerate={handleGenerate}
+                  onLogin={handleLogin}
+                />
+              </div>
             </div>
           </div>
 
-          {/* Right Column - Preview & Generation */}
-          <div className="space-y-6">
+          {/* Mobile Layout */}
+          <div className="lg:hidden space-y-8">
+            <PhotoUploader onPhotosChange={handlePhotosChange} maxPhotos={9} />
+
             <FeedPreview
               photos={photos}
               isGenerated={isGenerated}
@@ -76,15 +86,12 @@ export default function DashboardContainer() {
               onDownload={handleDownload}
             />
 
-            {/* Desktop Generation Panel */}
-            <div className="hidden lg:block">
-              <GenerationPanel
-                photos={photos}
-                isAuthenticated={isAuthenticated}
-                onGenerate={handleGenerate}
-                onLogin={handleLogin}
-              />
-            </div>
+            <GenerationPanel
+              photos={photos}
+              isAuthenticated={isAuthenticated}
+              onGenerate={handleGenerate}
+              onLogin={handleLogin}
+            />
           </div>
         </div>
       </div>
