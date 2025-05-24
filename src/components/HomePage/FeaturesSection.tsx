@@ -5,6 +5,7 @@ import {
   Quote,
   ChevronLeft,
   ChevronRight,
+  TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -50,31 +51,31 @@ export default function FeaturesSection() {
   ];
   const testimonials = [
     {
-      name: "Anonymous",
-      role: "Fashion Influencer",
+      name: "Sarah M.",
+      role: "Lifestyle Creator",
       avatar: "👩‍💼",
       content:
-        "GridAI transformed my Instagram completely! My engagement increased 300% after using their AI layouts.",
+        "Been using GridAI for 3 months now and my feed looks so much more cohesive. The AI suggestions actually work - my recent posts are getting way more likes.",
       rating: 5,
-      followers: "120K",
+      followers: "47K",
     },
     {
-      name: "Anonymous",
-      role: "Travel Blogger",
+      name: "Alex K.",
+      role: "Travel Photographer",
       avatar: "👨‍💻",
       content:
-        "The AI enhancement feature is incredible. My travel photos look professional without any editing skills.",
+        "Honestly didn't expect much but the grid layouts are spot on. Saves me hours of planning and my feed aesthetic is finally consistent.",
       rating: 5,
-      followers: "85K",
+      followers: "23K",
     },
     {
-      name: "Anonymous",
-      role: "Food Content Creator",
+      name: "Maya P.",
+      role: "Food Blogger",
       avatar: "👩‍🍳",
       content:
-        "Creating cohesive feed layouts used to take hours. Now it takes minutes with perfect results every time.",
+        "The before/after difference in my feed is crazy. Friends keep asking what changed - it's just better photo arrangement but makes such a difference.",
       rating: 5,
-      followers: "200K",
+      followers: "89K",
     },
   ];
 
@@ -91,7 +92,8 @@ export default function FeaturesSection() {
     if (type === "enhancement") {
       return (
         <div className="relative h-64 flex items-center justify-center p-4">
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 w-full max-w-lg mx-auto">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 w-full max-w-lg mx-auto relative">
+            {" "}
             <div className="space-y-3">
               <div className="text-sm font-medium text-slate-500 text-center">
                 Before
@@ -103,6 +105,34 @@ export default function FeaturesSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
+              <div className="text-center">
+                <a
+                  href="https://www.instagram.com/amandazandell/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
+                >
+                  @amandazandell
+                </a>
+              </div>
+            </div>
+            {/* Arrow between images */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="bg-white rounded-full p-2 shadow-lg border border-slate-200">
+                <svg
+                  className="w-6 h-6 text-emerald-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </div>
             </div>
             <div className="space-y-3">
               <div className="text-sm font-medium text-emerald-600 text-center">
@@ -110,15 +140,12 @@ export default function FeaturesSection() {
               </div>
               <div className="w-full aspect-square rounded-xl overflow-hidden max-w-[180px] mx-auto shadow-xl border-2 border-emerald-200 relative">
                 <img
-                  src="/Amanda2.jpg"
+                  src="/AmandaAI.jpg"
                   alt="After AI Enhancement"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-3 right-3 bg-emerald-500 text-white text-sm px-3 py-1 rounded-full shadow-lg">
-                  ✨ AI
-                </div>
               </div>
-            </div>
+            </div>{" "}
           </div>
         </div>
       );
@@ -126,57 +153,59 @@ export default function FeaturesSection() {
 
     if (type === "grid") {
       return (
-        <div className="relative h-48 flex flex-col items-center justify-center">
-          <div className="text-xs font-medium text-slate-500 text-center mb-3">
-            Instagram Feed Preview
-          </div>
-          <div className="grid grid-cols-3 gap-1 w-40 h-40 bg-white rounded-lg p-2 shadow-lg">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <div
-                key={i}
-                className={`aspect-square rounded-md ${
-                  i === 4
-                    ? "bg-gradient-to-br from-pink-400 to-purple-500"
-                    : i % 3 === 0
-                    ? "bg-gradient-to-br from-blue-400 to-cyan-500"
-                    : "bg-gradient-to-br from-orange-400 to-pink-500"
-                } flex items-center justify-center`}
-              >
-                <span className="text-white text-xs">📷</span>
+        <div className="relative h-64 flex flex-col items-center justify-center p-6">
+          <div className="w-full max-w-sm mx-auto text-center">
+            <div className="text-lg font-medium text-slate-600 mb-6">
+              Average Engagement Rate
+            </div>
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <div className="text-3xl font-bold text-slate-400 mb-1">
+                  2.1%
+                </div>
+                <div className="text-sm text-slate-500">Before</div>
               </div>
-            ))}
+              <div>
+                <div className="text-3xl font-bold text-purple-600 mb-1">
+                  3.8%
+                </div>
+                <div className="text-sm text-purple-600">After GridAI</div>
+              </div>
+            </div>
           </div>
         </div>
       );
-    }
-
-    // Speed mockup
+    } // Speed mockup
     return (
-      <div className="relative h-48 flex items-center justify-center">
-        <div className="bg-white rounded-lg p-4 shadow-lg w-full max-w-sm">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center">
-              <span className="text-white text-sm">⚡</span>
-            </div>
+      <div className="relative h-64 flex items-center justify-center p-6">
+        <div className="w-full max-w-lg">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center">
+              <span className="text-white text-xl">⚡</span>
+            </div>{" "}
             <div>
-              <div className="text-sm font-medium">Processing Complete!</div>
-              <div className="text-xs text-slate-500">
-                Processed in 2.3 seconds
+              <div className="text-xl font-bold text-slate-800">
+                Processing Complete!
+              </div>
+              <div className="text-base text-slate-500">
+                Processed in 30 seconds
               </div>
             </div>
           </div>
-          <div className="space-y-2">
-            <div className="flex justify-between text-xs">
-              <span>AI Enhancement</span>
-              <span className="text-emerald-600">✓ Complete</span>
+          <div className="space-y-4">
+            <div className="flex justify-between text-lg">
+              <span className="font-medium text-slate-700">AI Enhancement</span>
+              <span className="text-emerald-600 font-semibold">✓ Complete</span>
             </div>
-            <div className="flex justify-between text-xs">
-              <span>Grid Optimization</span>
-              <span className="text-emerald-600">✓ Complete</span>
+            <div className="flex justify-between text-lg">
+              <span className="font-medium text-slate-700">
+                Grid Optimization
+              </span>
+              <span className="text-emerald-600 font-semibold">✓ Complete</span>
             </div>
-            <div className="flex justify-between text-xs">
-              <span>Export Ready</span>
-              <span className="text-emerald-600">✓ Ready</span>
+            <div className="flex justify-between text-lg">
+              <span className="font-medium text-slate-700">Export Ready</span>
+              <span className="text-emerald-600 font-semibold">✓ Ready</span>
             </div>
           </div>
         </div>
@@ -328,26 +357,37 @@ export default function FeaturesSection() {
             </div>{" "}
             {/* Right Side - Interactive Preview & Testimonials */}
             <div className="hidden lg:block space-y-8">
-              {/* Live Preview Mockup */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-800">
-                    Live Preview
-                  </h3>
-                  <div className="flex items-center gap-2 text-emerald-600">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium">Real-time</span>
+              {/* Fixed Height Preview Container */}
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 h-96">
+                {/* Header - Only show for certain features */}
+                {(activeFeature === 0 || activeFeature === 2) && (
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-800">
+                      {activeFeature === 0
+                        ? "Live Preview"
+                        : "Speed Demonstration"}
+                    </h3>
+                    {activeFeature === 0 && (
+                      <div className="flex items-center gap-2 text-emerald-600">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-medium">Real-time</span>
+                      </div>
+                    )}
                   </div>
-                </div>
-                <div className="transform transition-all duration-700">
+                )}
+                {/* Content */}
+                <div
+                  className={`transform transition-all duration-700 ${
+                    activeFeature === 0 || activeFeature === 2 ? "" : "pt-6"
+                  }`}
+                >
                   <MockupPreview type={features[activeFeature].mockupType} />
                 </div>
               </div>
-
               {/* Testimonials Carousel */}
-              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden h-80">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                <div className="relative z-10">
+                <div className="relative z-10 h-full flex flex-col">
                   <div className="flex items-center justify-between mb-6">
                     {" "}
                     <div className="flex items-center gap-3">
@@ -372,30 +412,30 @@ export default function FeaturesSection() {
                     </div>
                   </div>
 
-                  <div className="transform transition-all duration-500">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="text-3xl">
-                        {testimonials[currentTestimonial].avatar}
-                      </div>
-                      <div>
-                        <div className="font-semibold">
-                          {testimonials[currentTestimonial].name}
+                  <div className="transform transition-all duration-500 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="text-3xl">
+                          {testimonials[currentTestimonial].avatar}
                         </div>
-                        <div className="text-sm text-slate-300">
-                          {testimonials[currentTestimonial].role}
-                        </div>{" "}
-                        <div className="text-xs text-cyan-400">
-                          {testimonials[currentTestimonial].followers} followers
+                        <div>
+                          <div className="font-semibold">
+                            {testimonials[currentTestimonial].name}
+                          </div>
+                          <div className="text-sm text-slate-300">
+                            {testimonials[currentTestimonial].role}
+                          </div>{" "}
+                          <div className="text-xs text-cyan-400">
+                            {testimonials[currentTestimonial].followers}{" "}
+                            followers
+                          </div>
                         </div>
-                      </div>
-                    </div>{" "}
-                    <p className="text-slate-100 leading-relaxed mb-3">
-                      "{testimonials[currentTestimonial].content}"
-                    </p>
-                    <div className="text-xs text-slate-400 mb-4 italic">
-                      *Names kept anonymous to protect creator privacy
+                      </div>{" "}
+                      <p className="text-slate-100 leading-relaxed">
+                        "{testimonials[currentTestimonial].content}"
+                      </p>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 mt-4">
                       {Array.from({
                         length: testimonials[currentTestimonial].rating,
                       }).map((_, i) => (
@@ -408,15 +448,14 @@ export default function FeaturesSection() {
                   </div>
                 </div>
               </div>
-
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
                   <div className="text-2xl font-bold text-slate-800">99.9%</div>
                   <div className="text-xs text-slate-600">Accuracy</div>
-                </div>
+                </div>{" "}
                 <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
-                  <div className="text-2xl font-bold text-slate-800">2.1s</div>
+                  <div className="text-2xl font-bold text-slate-800">30s</div>
                   <div className="text-xs text-slate-600">Avg Process</div>
                 </div>
                 <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
