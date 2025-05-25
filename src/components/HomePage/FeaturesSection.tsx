@@ -176,7 +176,7 @@ export default function FeaturesSection() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ">
             {" "}
             {/* Mobile Staggered Cards Animation - Fixed Positioning */}
-            <div className="lg:hidden space-y-8 py-8">
+            <div className="lg:hidden space-y-8 py-8 overflow-hidden">
               {features.map((feature, index) => {
                 const isFromRight = index % 2 === 0; // Card 1 & 3 from right, Card 2 from left
 
@@ -185,7 +185,7 @@ export default function FeaturesSection() {
                     key={feature.id}
                     className="w-full flex justify-center px-4"
                     initial={{
-                      x: isFromRight ? "50%" : "-50%",
+                      x: isFromRight ? "100px" : "-100px",
                       rotate: isFromRight ? 8 : -8,
                       opacity: 0.2,
                     }}
