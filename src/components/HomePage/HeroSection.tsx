@@ -122,7 +122,8 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-        </div>{" "}        {/* Before/After AI Enhancement - Mobile Only */}
+        </div>{" "}
+        {/* Before/After AI Enhancement - Mobile Only */}
         <div className="mb-8 sm:mb-12 md:hidden">
           <div className="max-w-sm mx-auto px-4">
             <div className="relative flex items-center justify-center p-4">
