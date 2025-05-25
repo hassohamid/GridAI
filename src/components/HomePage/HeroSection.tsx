@@ -122,7 +122,69 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-        </div>{" "}
+        </div>{" "}        {/* Before/After AI Enhancement - Mobile Only */}
+        <div className="mb-8 sm:mb-12 md:hidden">
+          <div className="max-w-sm mx-auto px-4">
+            <div className="relative flex items-center justify-center p-4">
+              <div className="grid grid-cols-2 gap-4 w-full max-w-xs mx-auto relative">
+                <div className="space-y-3">
+                  <div className="text-sm font-medium text-slate-500 text-center">
+                    Original
+                  </div>
+                  <div className="w-full aspect-square rounded-xl overflow-hidden shadow-md border border-slate-200">
+                    <img
+                      src="/Amanda.jpg"
+                      alt="Original photo"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <a
+                      href="https://www.instagram.com/amandazandell/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-400 hover:text-slate-600 transition-colors"
+                    >
+                      @amandazandell
+                    </a>
+                  </div>
+                </div>
+
+                {/* Arrow between images */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div className="bg-white rounded-full p-2 shadow-lg border border-slate-200">
+                    <svg
+                      className="w-6 h-6 text-emerald-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="text-sm font-medium text-emerald-600 text-center">
+                    GridAI
+                  </div>
+                  <div className="w-full aspect-square rounded-xl overflow-hidden shadow-xl border-2 border-emerald-200 relative">
+                    <img
+                      src="/AmandaAI.jpg"
+                      alt="GridAI enhanced photo"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Process Flow - 2025 Minimalist Design */}
         <div className="mb-8 sm:mb-12 lg:mb-16 hidden md:block">
           <div className="max-w-4xl mx-auto">
