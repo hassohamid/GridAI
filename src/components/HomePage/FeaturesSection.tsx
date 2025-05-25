@@ -49,7 +49,7 @@ export default function FeaturesSection() {
   ];
   const testimonials = [
     {
-      name: "Sarah M.",
+      name: "Anonymous",
       role: "Lifestyle Creator",
       avatar: "👩‍💼",
       content:
@@ -58,7 +58,7 @@ export default function FeaturesSection() {
       followers: "47K",
     },
     {
-      name: "Alex K.",
+      name: "Anonymous",
       role: "Travel Photographer",
       avatar: "👨‍💻",
       content:
@@ -67,7 +67,7 @@ export default function FeaturesSection() {
       followers: "23K",
     },
     {
-      name: "Maya P.",
+      name: "Anonymous",
       role: "Food Blogger",
       avatar: "👩‍🍳",
       content:
@@ -287,12 +287,12 @@ export default function FeaturesSection() {
               {/* AI Enhancement Preview - Just the images */}
               <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100">
                 <MockupPreview type="enhancement" />
-              </div>
-
+              </div>{" "}
               {/* Testimonials Carousel */}
-              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden h-80">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
-                <div className="relative z-10">
+                <div className="relative z-10 h-full flex flex-col">
+                  {" "}
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
                       <Quote className="h-6 w-6 text-cyan-400" />
@@ -314,16 +314,30 @@ export default function FeaturesSection() {
                         <ChevronRight className="h-4 w-4" />
                       </button>
                     </div>
-                  </div>
-
-                  <div className="transform transition-all duration-500">
+                  </div>{" "}
+                  <div className="text-xs text-slate-400 mb-4 italic">
+                    *Names are anonymous for privacy protection
+                  </div>{" "}
+                  <div className="transform transition-all duration-500 flex-1 flex flex-col justify-center">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="text-3xl">
                         {testimonials[currentTestimonial].avatar}
                       </div>
-                      <div>
-                        <div className="font-semibold">
-                          {testimonials[currentTestimonial].name}
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <div className="font-semibold">
+                            {testimonials[currentTestimonial].name}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            {Array.from({
+                              length: testimonials[currentTestimonial].rating,
+                            }).map((_, i) => (
+                              <Star
+                                key={i}
+                                className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                              />
+                            ))}
+                          </div>
                         </div>
                         <div className="text-sm text-slate-300">
                           {testimonials[currentTestimonial].role}
@@ -333,23 +347,12 @@ export default function FeaturesSection() {
                         </div>
                       </div>
                     </div>
-                    <p className="text-slate-100 leading-relaxed mb-4">
+                    <p className="text-slate-100 leading-relaxed min-h-[4rem]">
                       "{testimonials[currentTestimonial].content}"
                     </p>
-                    <div className="flex items-center gap-1">
-                      {Array.from({
-                        length: testimonials[currentTestimonial].rating,
-                      }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-4 w-4 fill-yellow-400 text-yellow-400"
-                        />
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
-
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-100 text-center">
